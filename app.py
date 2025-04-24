@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route("/users")
 def get_users():
-    conn = sqlite3.connect("SQLite&Python.db")
+    conn = sqlite3.connect("SQLite&Python.db", check_same_thread=False)
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM users")
     rows = cursor.fetchall()
